@@ -1,0 +1,17 @@
+{
+  "name": "wearix-rewear-restyled",
+  "version": "1.0.0",
+  "description": "REWEAR Ukay-Ukay Marketplace",
+  "scripts": {
+    "test": "jest --runInBand"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
+  }
+}

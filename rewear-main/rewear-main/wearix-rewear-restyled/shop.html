@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - REWEAR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-track">
+            <span>Free shipping on orders over $150 · New editorial drop now live · Premium tailoring, modern wearability · Free shipping on orders over $150 · New editorial drop now live · Premium tailoring, modern wearability · </span>
+            <span>Free shipping on orders over $150 · New editorial drop now live · Premium tailoring, modern wearability · Free shipping on orders over $150 · New editorial drop now live · Premium tailoring, modern wearability · </span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">REWEAR</a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="shop.html" class="nav-link active">Shop</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-primary" onclick="location.href='dashboard-buyer.html'">Get Started</button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-shop">
+        <div class="hero-background">
+            <img src="assets/images/hero-trench-editorial.jpg" alt="Fashion collection">
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Elevate your daily<br>wardrobe with ease</h1>
+            <p class="hero-subtitle">Discover premium pieces designed to seamlessly integrate into your lifestyle</p>
+        </div>
+    </section>
+
+    <!-- Category Filter + Sort -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-bar">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-category="all">All Products</button>
+                    <button class="filter-tab" data-category="shirts">Shirts</button>
+                    <button class="filter-tab" data-category="pants">Pants</button>
+                    <button class="filter-tab" data-category="jackets">Jackets</button>
+                    <button class="filter-tab" data-category="shoes">Shoes</button>
+                    <button class="filter-tab" data-category="accessories">Accessories</button>
+                </div>
+                <div class="sort-controls">
+                    <select class="sort-select" id="sortSelect">
+                        <option value="default">Sort: Default</option>
+                        <option value="price_asc">Price: Low to High</option>
+                        <option value="price_desc">Price: High to Low</option>
+                        <option value="rating">Top Rated</option>
+                    </select>
+                </div>
+            </div>
+            <div class="results-count" id="resultsCount"></div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                <div class="products-loading">Loading products…</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Gallery -->
+    <section class="community-section">
+        <div class="container">
+            <div class="community-icon">◆</div>
+            <h2 class="community-title">See our community<br>in modern silhouettes</h2>
+            <p class="community-text">Join thousands of style enthusiasts who trust REWEAR for their everyday wardrobe. Share your looks with #REWEARStyle</p>
+            <button class="btn-primary-large">Join the Community</button>
+        </div>
+        <div class="community-gallery">
+            <div class="gallery-track">
+                <div class="gallery-item"><img src="assets/images/studio-white.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/textured-knitted-shirt.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/editorial-blazer.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/sharp-tailored-blazer.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/hero-moody-studio.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/leather-bomber-jacket.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/denim-overalls.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/ribbed-knit-midi-dress.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/oversized-hoodie.jpg" alt="Community member"></div>
+                <!-- Duplicate for seamless infinite loop -->
+                <div class="gallery-item"><img src="assets/images/studio-white.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/textured-knitted-shirt.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/editorial-blazer.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/sharp-tailored-blazer.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/hero-moody-studio.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/leather-bomber-jacket.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/denim-overalls.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/ribbed-knit-midi-dress.jpg" alt="Community member"></div>
+                <div class="gallery-item"><img src="assets/images/oversized-hoodie.jpg" alt="Community member"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">Subscribe to<br>our news letter</h2>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input">
+                    <button class="btn-white-pill">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <h3>REWEAR</h3>
+                    <p>Timeless fashion pieces crafted with precision and care. Elevating your everyday wardrobe since 2020.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Facebook</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow us</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get in touch</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:hello@REWEAR.com">hello@REWEAR.com</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li>123 Fashion Ave<br>New York, NY 10001</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-wordmark">
+                <h2>REWEAR</h2>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/shop.js"></script>
+</body>
+</html>

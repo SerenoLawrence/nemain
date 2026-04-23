@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — REWEAR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- PIN GATE — shown until admin logs in -->
+    <div id="adminGate" class="admin-gate">
+        <div class="admin-gate-card">
+            <div class="admin-gate-logo">REWEAR</div>
+            <h2 class="admin-gate-title">Admin Access</h2>
+            <p class="admin-gate-sub">Enter your admin PIN to continue</p>
+            <div class="admin-pin-inputs" id="pinInputs">
+                <input class="pin-digit" type="password" maxlength="1" inputmode="numeric">
+                <input class="pin-digit" type="password" maxlength="1" inputmode="numeric">
+                <input class="pin-digit" type="password" maxlength="1" inputmode="numeric">
+                <input class="pin-digit" type="password" maxlength="1" inputmode="numeric">
+            </div>
+            <p class="admin-pin-error hidden" id="pinError">Incorrect PIN. Try again.</p>
+            <button class="btn-primary-large" id="pinSubmitBtn" style="width:100%;margin-top:8px">Enter</button>
+        </div>
+    </div>
+
+    <!-- ADMIN DASHBOARD — hidden until PIN verified -->
+    <div id="adminDashboard" class="hidden">
+
+        <aside class="dash-sidebar">
+            <div class="dash-logo"><a href="index.html">REWEAR</a></div>
+            <div class="dash-sidebar-badge">
+                <span class="dash-badge dash-badge-verified">Admin</span>
+            </div>
+            <nav class="dash-nav">
+                <a href="#" class="dash-nav-link active" data-tab="overview">▦ Overview</a>
+                <a href="#" class="dash-nav-link" data-tab="sellers">▦ Seller Verification</a>
+                <a href="#" class="dash-nav-link" data-tab="listings">▦ Listing Approvals</a>
+                <a href="#" class="dash-nav-link" data-tab="orders">▦ All Orders</a>
+                <a href="#" class="dash-nav-link" data-tab="fees">💳 Fees</a>
+                <a href="#" class="dash-nav-link" data-tab="transactions">💰 Transactions</a>
+                <a href="#" class="dash-nav-link" data-tab="earnings">📊 Earnings</a>
+            </nav>
+            <div class="dash-sidebar-footer">
+                <button class="dash-back-link" id="adminLogoutBtn" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.4);font-size:13px;text-align:left;">⬡ Logout</button>
+                <a href="shop.html" class="dash-back-link">← Back to Shop</a>
+            </div>
+        </aside>
+
+        <main class="dash-main">
+            <header class="dash-header">
+                <div>
+                    <h1 class="dash-page-title" id="dashPageTitle">Overview</h1>
+                    <p class="dash-page-sub">REWEAR Admin Panel</p>
+                </div>
+                <div class="dash-header-actions">
+                    <span class="dash-badge dash-badge-verified" id="adminClock"></span>
+                </div>
+            </header>
+
+            <!-- TAB: Overview -->
+            <div class="dash-tab active" id="tab-overview">
+                <div class="dash-stats-grid">
+                    <div class="dash-stat-card">
+                        <p class="dash-stat-label">Pending Sellers</p>
+                        <h2 class="dash-stat-number" id="statPendingSellers">—</h2>
+                    </div>
+                    <div class="dash-stat-card">
+                        <p class="dash-stat-label">Pending Listings</p>
+                        <h2 class="dash-stat-number" id="statPendingListings">—</h2>
+                    </div>
+                    <div class="dash-stat-card">
+                        <p class="dash-stat-label">Total Orders</p>
+                        <h2 class="dash-stat-number" id="statTotalOrders">—</h2>
+                    </div>
+                    <div class="dash-stat-card">
+                        <p class="dash-stat-label">Total Products</p>
+                        <h2 class="dash-stat-number" id="statTotalProducts">—</h2>
+                    </div>
+                </div>
+
+                <div class="dash-section-card">
+                    <h3 class="dash-section-title">Needs Attention</h3>
+                    <div id="attentionList"><p class="dash-empty">Loading…</p></div>
+                </div>
+            </div>
+
+            <!-- TAB: Seller Verification -->
+            <div class="dash-tab" id="tab-sellers">
+                <div class="dash-toolbar">
+                    <select class="sort-select" id="sellerStatusFilter">
+                        <option value="all">All Sellers</option>
+                        <option value="pending">Pending</option>
+                        <option value="verified">Verified</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                    <input type="text" class="dash-search" id="sellerSearch" placeholder="Search by name or email…">
+                </div>
+                <div class="admin-cards-list" id="sellersList">
+                    <p class="dash-empty">Loading sellers…</p>
+                </div>
+            </div>
+
+            <!-- TAB: Listing Approvals -->
+            <div class="dash-tab" id="tab-listings">
+                <div class="dash-toolbar">
+                    <select class="sort-select" id="listingStatusFilter">
+                        <option value="pending">Pending Approval</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                        <option value="all">All Listings</option>
+                    </select>
+                    <input type="text" class="dash-search" id="listingSearch" placeholder="Search listings…">
+                </div>
+                <div class="admin-cards-list" id="listingsList">
+                    <p class="dash-empty">Loading listings…</p>
+                </div>
+            </div>
+
+            <!-- TAB: All Orders -->
+            <div class="dash-tab" id="tab-orders">
+                <div class="dash-toolbar">
+                    <select class="sort-select" id="orderStatusFilter">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <div class="dash-orders-list" id="adminOrdersList">
+                    <p class="dash-empty">Loading orders…</p>
+                </div>
+            </div>
+
+            <!-- TAB: Fees -->
+            <div id="tab-fees" class="dash-tab">
+                <div class="dash-section-header">
+                    <h2 class="dash-section-title">Listing Fee Payments</h2>
+                </div>
+                <div id="feesList"><p class="dash-empty">Loading…</p></div>
+            </div>
+
+            <!-- TAB: Transactions -->
+            <div id="tab-transactions" class="dash-tab">
+                <div class="dash-section-header">
+                    <h2 class="dash-section-title">Transactions</h2>
+                </div>
+                <div id="transactionsList"><p class="dash-empty">Loading…</p></div>
+            </div>
+
+            <!-- TAB: Earnings -->
+            <div id="tab-earnings" class="dash-tab">
+                <div class="dash-section-header">
+                    <h2 class="dash-section-title">Platform Earnings</h2>
+                </div>
+                <div id="earningsSummary"><p class="dash-empty">Loading…</p></div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
